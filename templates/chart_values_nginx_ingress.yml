@@ -1,0 +1,6 @@
+rbac:
+  create: false
+
+controller:
+  publishService:
+    enabled: true
