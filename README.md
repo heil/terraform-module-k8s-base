@@ -51,12 +51,24 @@ provider "template" {
 
 ### Example usage
 
-The module can be used as follows:
+In your root Terraform path where you use the module, create Chart value files for all charts:
+
+```
+mkdir templates
+touch templates/chart_values_cert_manager.yml
+touch templates/chart_values_external_dns.yml
+touch templates/chart_values_kubernetes_dashboard.yml
+touch templates/chart_values_metrics_server.yml
+touch templates/chart_values_nginx_ingress.yml
+```
+
+Add needed modifications of Chart values in the appropriate files in the template directory.
+
+The module can then be used as follows:
 
 ```
 module "k8s_base" {
   source       = "git::ssh://git@gitlab.olanis.de:terraform/terraform-module-k8s-base.git?ref=tags/v0.1.0"
-  cluster_name = "test.k8s.example.com"
 }
 ```
 

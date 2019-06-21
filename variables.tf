@@ -6,10 +6,6 @@ variable "chart_enabled_external_dns" {
   default = "true"
 }
 
-variable "chart_enabled_kube2iam" {
-  default = "true"
-}
-
 variable "chart_enabled_kubernetes_dashboard" {
   default = "true"
 }
@@ -28,10 +24,6 @@ variable "chart_namespace_cert_manager" {
 
 variable "chart_namespace_external_dns" {
   default = "external-dns"
-}
-
-variable "chart_namespace_kube2iam" {
-  default = "kube-system"
 }
 
 variable "chart_namespace_kubernetes_dashboard" {
@@ -54,10 +46,6 @@ variable "chart_version_external_dns" {
   default = "1.6.0"
 }
 
-variable "chart_version_kube2iam" {
-  default = "0.10.0"
-}
-
 variable "chart_version_kubernetes_dashboard" {
   default = "1.2.0"
 }
@@ -69,8 +57,6 @@ variable "chart_version_metrics_server" {
 variable "chart_version_nginx_ingress" {
   default = "1.2.2"
 }
-
-variable "cluster_name" {}
 
 variable "enabled" {
   default = "true"

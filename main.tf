@@ -16,7 +16,7 @@ resource "helm_release" "cert_manager" {
   namespace = "${var.chart_namespace_cert_manager}"
 
   values = [
-    "${data.template_file.cert_manager.rendered}",
+    "${data.template_file.cert_manager[0].rendered}",
   ]
 
   provisioner "local-exec" {
@@ -33,13 +33,8 @@ resource "helm_release" "external_dns" {
   namespace = "${var.chart_namespace_external_dns}"
 
   values = [
-    "${data.template_file.external_dns.rendered}",
+    "${data.template_file.external_dns[0].rendered}",
   ]
-
-  set {
-    name  = "rbac.create"
-    value = "false"
-  }
 }
 
 resource "helm_release" "kubernetes_dashboard" {
@@ -50,7 +45,7 @@ resource "helm_release" "kubernetes_dashboard" {
   namespace = "${var.chart_namespace_kubernetes_dashboard}"
 
   values = [
-    "${data.template_file.kubernetes_dashboard.rendered}",
+    "${data.template_file.kubernetes_dashboard[0].rendered}",
   ]
 }
 
@@ -58,11 +53,11 @@ resource "helm_release" "metrics_server" {
   count     = "${var.enabled == "true" && var.chart_enabled_metrics_server == "true" ? 1 : 0}"
   name      = "metrics-server"
   chart     = "stable/metrics-server"
-  namespace = "${var.chart_namespace_nginx_ingress}"
+  version   = "${var.chart_version_metrics_server}"
   namespace = "${var.chart_namespace_metrics_server}"
 
   values = [
-    "${data.template_file.metrics_server.rendered}",
+    "${data.template_file.metrics_server[0].rendered}",
   ]
 }
 
@@ -74,6 +69,6 @@ resource "helm_release" "nginx_ingress" {
   namespace = "${var.chart_namespace_nginx_ingress}"
 
   values = [
-    "${data.template_file.nginx_ingress.rendered}",
+    "${data.template_file.nginx_ingress[0].rendered}",
   ]
 }
