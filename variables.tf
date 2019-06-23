@@ -73,6 +73,10 @@ variable "chart_version_nginx_ingress" {
   default = "1.2.2"
 }
 
+variable "cluster_name" {
+  type = string
+}
+
 variable "enabled" {
   type    = bool
   default = true
