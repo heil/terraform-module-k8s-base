@@ -20,7 +20,7 @@ To work with the module the following programs must be installed:
 A working configuration for `kubectl` is also required. The variable `"cluster_name"` **must be set** to the appropriate
 `kubectl` context.
 
-The module uses, amongst other, the
+The module uses the
 [Terraform Provider for Helm](https://github.com/terraform-providers/terraform-provider-helm). For documentation see:
 
 https://www.terraform.io/docs/providers/helm/
@@ -38,14 +38,6 @@ provider "helm" {
   kubernetes {
     config_context = "test.k8s.example.com"
   }
-}
-
-provider "null" {
-  version = "~> 2.0"
-}
-
-provider "template" {
-  version = "~> 2.0"
 }
 ```
 
