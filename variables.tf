@@ -1,24 +1,30 @@
 variable "chart_enabled_cert_manager" {
-  default = "true"
+  type    = bool
+  default = true
 }
 
 variable "chart_enabled_external_dns" {
-  default = "true"
+  type    = bool
+  default = true
 }
 
 variable "chart_enabled_kubernetes_dashboard" {
-  default = "true"
+  type    = bool
+  default = true
 }
 
 variable "chart_enabled_metrics_server" {
-  default = "true"
+  type    = bool
+  default = true
 }
 
 variable "chart_enabled_nginx_ingress" {
-  default = "true"
+  type    = bool
+  default = true
 }
 
 variable "chart_namespace_cert_manager" {
+  type    = bool
   default = "cert-manager"
 }
 
@@ -59,5 +65,6 @@ variable "chart_version_nginx_ingress" {
 }
 
 variable "enabled" {
-  default = "true"
+  type    = bool
+  default = true
 }
