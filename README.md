@@ -54,12 +54,13 @@ provider "template" {
 In your root Terraform path where you use the module, create Chart value files for all charts:
 
 ```
+export WORKSPACE_NAME="prod"
 mkdir templates
-touch templates/chart_values_cert_manager.yml
-touch templates/chart_values_external_dns.yml
-touch templates/chart_values_kubernetes_dashboard.yml
-touch templates/chart_values_metrics_server.yml
-touch templates/chart_values_nginx_ingress.yml
+touch templates/${WORKSPACE_NAME}/chart_values_cert_manager.yml
+touch templates/${WORKSPACE_NAME}/chart_values_external_dns.yml
+touch templates/${WORKSPACE_NAME}/chart_values_kubernetes_dashboard.yml
+touch templates/${WORKSPACE_NAME}/chart_values_metrics_server.yml
+touch templates/${WORKSPACE_NAME}/chart_values_nginx_ingress.yml
 ```
 
 Add needed modifications of Chart values in the appropriate files in the template directory.

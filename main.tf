@@ -16,7 +16,7 @@ resource "helm_release" "cert_manager" {
   namespace = "${var.chart_namespace_cert_manager}"
 
   values = [
-    "${data.template_file.cert_manager[0].rendered}",
+    file("${path.root}/templates/${terraform.workspace}/chart_values_cert_manager.yml"),
   ]
 
   provisioner "local-exec" {
@@ -33,7 +33,7 @@ resource "helm_release" "external_dns" {
   namespace = "${var.chart_namespace_external_dns}"
 
   values = [
-    "${data.template_file.external_dns[0].rendered}",
+    file("${path.root}/templates/${terraform.workspace}/chart_values_external_dns.yml"),
   ]
 }
 
@@ -45,7 +45,7 @@ resource "helm_release" "kubernetes_dashboard" {
   namespace = "${var.chart_namespace_kubernetes_dashboard}"
 
   values = [
-    "${data.template_file.kubernetes_dashboard[0].rendered}",
+    file("${path.root}/templates/${terraform.workspace}/chart_values_kubernetes_dashboard.yml"),
   ]
 }
 
@@ -57,7 +57,7 @@ resource "helm_release" "metrics_server" {
   namespace = "${var.chart_namespace_metrics_server}"
 
   values = [
-    "${data.template_file.metrics_server[0].rendered}",
+    file("${path.root}/templates/${terraform.workspace}/chart_values_metrics_server.yml"),
   ]
 }
 
@@ -69,6 +69,6 @@ resource "helm_release" "nginx_ingress" {
   namespace = "${var.chart_namespace_nginx_ingress}"
 
   values = [
-    "${data.template_file.nginx_ingress[0].rendered}",
+    file("${path.root}/templates/${terraform.workspace}/chart_values_nginx_ingress.yml"),
   ]
 }
