@@ -61,7 +61,7 @@ The module can then be used as follows:
 
 ```
 module "k8s_base" {
-  source = "git::ssh://git@gitlab.olanis.de:terraform/terraform-module-k8s-base.git?ref=tags/v0.1.3"
+  source = "git::https://github.com/heil/terraform-module-k8s-base.git?ref=tags/v0.1"
 }
 ```
 
@@ -110,3 +110,4 @@ this repository.
 ## Authors
 
 * **Tarak Blah** - *Initial work*
+* **Thomas Heil** - *Contributor*
